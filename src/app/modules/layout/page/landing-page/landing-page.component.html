@@ -1,0 +1,36 @@
+<div class="h-28"></div>
+<app-slider></app-slider>
+<div>
+  <h1 class="w-full text-center font-semibold text-5xl mt-20 mb-12">
+    Shop by Category
+  </h1>
+</div>
+<div id="categories" *ngIf="categories" class="grid sm:grid-cols-2 md:grid-cols-4">
+  <div
+    *ngFor="let category of categories"
+    class="relative mx-auto w-1/2 sm:w-full my-5"
+  >
+    <img [src]="category.image" />
+    <div class="absolute inset-0 flex justify-center top-3/4">
+      <a [routerLink]="['/category', category.id]">
+        <h2
+          class="px-5 py-2 lg:px-10 lg:py-4 text-sm lg:text-base bg-white hover:bg-slate-100 transition-all rounded-lg font-semibold"
+          style="font-family: 'sofia'"
+        >
+          {{ category.name }}
+        </h2>
+      </a>
+    </div>
+  </div>
+</div>
+
+<div>
+  <h1 id="products" class="w-full text-center font-semibold text-5xl mt-20 mb-12">
+    What's new
+  </h1>
+  <app-products [products]="products"></app-products>
+</div>
+<div class="flex justify-center">
+  <app-button [buttonType]="'button'" color="load" (click)="loadMore()">Load more Products</app-button>
+</div>
+

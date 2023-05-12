@@ -1,0 +1,25 @@
+<div>
+  <footer
+    class="flex flex-1 grow flex-col items-center border-t-1 border-gray-300 bg-neutral-100 text-neutral-400"
+  >
+    <ul
+      class="flex text-center text-xs sm:text-sm md:text-base border-b border-gray-200 h-1/2 w-full tracking-wider font-thin"
+      style="font-family: 'sofia'"
+    >
+      <li class="w-1/4 p-2"><a href="#" (click)="onScrollTop()">Home</a></li>
+
+      <li class="w-1/4 p-2"><a routerLink="cart">Shopping Cart</a></li>
+
+      <li class="w-1/4 p-2"><a>Terms and Conditions</a></li>
+      <li class="w-1/4 break-words p-2"><a href="#">Privacy Policy</a></li>
+    </ul>
+    <div class=" text-xl sm:text-3xl my-2">
+      <fa-icon [icon]="faGithub"></fa-icon>
+    </div>
+    <div class="flex justify-center items-center mb-3">
+      <span class="text-xs sm:text-sm md:text-base" style="font-family: 'sofia'"
+        >Developed with Angular <fa-icon [icon]="faAngular"></fa-icon
+      ></span>
+    </div>
+  </footer>
+</div>

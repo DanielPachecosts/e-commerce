@@ -1,1 +1,25 @@
 /* You can add global styles to this file, and also import other style files */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import 'swiper/css';
+@import 'swiper/css/navigation';
+@import 'swiper/css/pagination';
+
+@import '@angular/cdk/overlay-prebuilt.css';
+
+
+@font-face {
+    font-family: 'sofia';
+    src: url('assets/fonts/Sofia Pro UltraLight Az.otf');
+}
+
+@font-face {
+    font-family: 'bristone';
+    src: url('assets/fonts/Bristone Medium.ttf');
+}
+
+.swiper-button-next, .swiper-button-prev {
+    color:black
+}

@@ -1,0 +1,93 @@
+<div
+  class="fixed z-30 left-0 top-0 w-screen shadow bg-white px-8 sm:px-16 border-b-1 border-gray-300 mx-auto"
+>
+  <nav class="flex bg-white text-black opacity-95 h-20">
+    <div id="left-nav-options" class="flex items-center w-2/6">
+      <div class="lg:hidden">
+        <fa-icon (click)="toggle()" [icon]="faBars"> </fa-icon>
+        <div>
+          <app-sidebar
+            [ngClass]="!isOpen ? '-translate-x-full' : 'translate-x-0'"
+            class="absolute inset-0 h-screen bg-black/80 z-50 transition-transform duration-500"
+            (close)="toggle()"
+          ></app-sidebar>
+        </div>
+      </div>
+      <ul class="hidden w-full justify-center sm:justify-start lg:flex">
+        <li class="text-center trans">
+          <a
+            href="#products"
+            class="flex transition-all font-semibold px-4 py-4 my-2 hover:bg-neutral-100 rounded-xl tracking-wide"
+            style="font-family: 'sofia'"
+            >All Products
+          </a>
+        </li>
+        <li class="text-center">
+          <a
+            class="flex transition-all font-semibold px-4 py-4 my-2 hover:bg-neutral-100 rounded-xl tracking-wide"
+            style="font-family: 'sofia'"
+          >
+            <button
+              type="button"
+              cdkOverlayOrigin
+              #trigger="cdkOverlayOrigin"
+              (mouseover)="isOpenCategoriesOverlay = !isOpenCategoriesOverlay"
+            >
+              Categories
+            </button>
+          </a>
+        </li>
+        <li class="text-center">
+          <a
+            routerLink="/"
+            class="flex transition-all font-semibold px-4 py-4 my-2 hover:bg-neutral-100 rounded-xl tracking-wide"
+            style="font-family: 'sofia'"
+            >Others
+          </a>
+        </li>
+      </ul>
+    </div>
+    <div id="nav-logo" class="flex items-center w-2/6">
+      <h1
+        id="#top"
+        class="w-full text-center tracking-widest text-sm md:text-xl"
+        style="font-family: 'bristone'"
+      >
+        <a routerLink="">SMART COMMERCE</a>
+      </h1>
+    </div>
+    <div
+      id="right-nav-options"
+      class="flex items-center w-2/6 text-center justify-end"
+    >
+      <fa-icon
+        class="p-3 hover:bg-neutral-100 rounded-xl"
+        [icon]="faSearch"
+      ></fa-icon>
+      <fa-icon
+        class="p-3 hover:bg-neutral-100 rounded-xl hidden lg:block"
+        [icon]="faUser"
+      ></fa-icon>
+      <app-cart></app-cart>
+    </div>
+  </nav>
+</div>
+
+<ng-template
+  cdkConnectedOverlay
+  [cdkConnectedOverlayOrigin]="trigger"
+  [cdkConnectedOverlayOpen]="isOpenCategoriesOverlay"
+>
+  <ul
+    class="mt-4 w-48 rounded-sm p-2 bg-neutral-100"
+    (mouseleave)="isOpenCategoriesOverlay = !isOpenCategoriesOverlay"
+  >
+    <li *ngFor="let category of categories" class="p-2 hover:bg-neutral-200">
+      <a [routerLink]="['/category', category.id]">
+        <h3 class="tracking-wide" style="font-family: 'sofia'">
+          {{ category.name }}
+        </h3>
+      </a>
+    </li>
+  </ul>
+</ng-template>

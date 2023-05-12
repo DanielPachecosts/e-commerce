@@ -1,0 +1,8 @@
+<div class="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8 m-5 px-10">
+  <app-product
+    class="transition-all"
+    *ngFor="let product of products"
+    [product]="product"
+    (showDetail)="openModal($event)"
+  ></app-product>
+</div>

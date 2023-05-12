@@ -1,0 +1,13 @@
+<div class="flex flex-row">
+  <span
+    *ngIf="totalQuantityInCart"
+    class="flex items-center text-xl"
+    style="font-family: 'sofia'"
+    >{{ totalQuantityInCart }}</span
+  ><a routerLink="cart"
+    ><fa-icon
+      class="p-3 hover:bg-neutral-100 rounded-xl"
+      [icon]="faCartShopping"
+    ></fa-icon
+  ></a>
+</div>
