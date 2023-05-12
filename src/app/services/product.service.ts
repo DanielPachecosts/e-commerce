@@ -5,12 +5,13 @@ import { tap } from 'rxjs/operators';
 
 import { Product } from 'src/app/models/product.model';
 import { Category } from '../models/category.model';
+import { environment } from "../../environments/environment";
 
 @Injectable({
   providedIn: 'root',
 })
 export class ProductService {
-  url = 'https:/api.escuelajs.co/api/v1/products';
+  url = environment.API_URL;
   products = new BehaviorSubject<Product[]>([]);
   products$ = this.products.asObservable();
 
@@ -22,7 +23,7 @@ export class ProductService {
     params = params.set('limit', limit);
 
     return this.http
-      .get<Product[]>(this.url, { params })
+      .get<Product[]>(`${this.url}/api/v1/products`, { params })
       .pipe(tap((products) => this.products.next(products)));
   }
 
@@ -30,7 +31,7 @@ export class ProductService {
     let params = new HttpParams();
     params = params.set('offset', offset);
     params = params.set('limit', limit);
-    return this.http.get<Product[]>(`${this.url}/?categoryId=${id}`, {
+    return this.http.get<Product[]>(`${this.url}/api/v1/products/?categoryId=${id}`, {
       params,
     });
   }

@@ -4,12 +4,13 @@ import { Category } from '../models/category.model';
 import { tap, map } from 'rxjs/operators';
 import { BehaviorSubject } from 'rxjs';
 import { Product } from '../models/product.model';
+import { environment } from "../../environments/environment";
 
 @Injectable({
   providedIn: 'root',
 })
 export class CategoryService {
-  url = 'https://api.escuelajs.co/api/v1/categories';
+  url = environment.API_URL;
 
   categories = new BehaviorSubject<Category[]>([]);
   categories$ = this.categories.asObservable();
@@ -17,7 +18,7 @@ export class CategoryService {
   constructor(private http: HttpClient) {}
 
   getAll() {
-    return this.http.get<Category[]>(this.url).pipe(
+    return this.http.get<Category[]>(`${this.url}/api/v1/categories`).pipe(
       map((data) => {
         const slicedData = data.slice(0, 4);
         this.categories.next(slicedData)
@@ -27,6 +28,6 @@ export class CategoryService {
   }
 
   get(id: Category['id']) {
-    return this.http.get<Product[]>(`${this.url}/id`)
+    return this.http.get<Product[]>(`${this.url}/api/v1/categories/id`)
   }
 }
