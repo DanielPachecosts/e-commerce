@@ -32,7 +32,7 @@
               type="button"
               cdkOverlayOrigin
               #trigger="cdkOverlayOrigin"
-              (mouseover)="isOpenCategoriesOverlay = !isOpenCategoriesOverlay"
+              (click)="isOpenCategoriesOverlay = !isOpenCategoriesOverlay"
             >
               Categories
             </button>
@@ -109,7 +109,7 @@
 >
   <ul
     class="mt-2 w-48 rounded-sm p-2 bg-neutral-100"
-    (mouseleave)="isOpenCategoriesOverlay = !isOpenCategoriesOverlay"
+    
   >
     <li *ngIf="!isUser" class="p-2 hover:bg-neutral-200">
       <a routerLink="/auth/login">
