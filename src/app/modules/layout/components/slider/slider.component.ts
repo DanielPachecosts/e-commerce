@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Product } from 'src/app/models/product.model';
+import { Product } from 'src/app/modules/products/models/product.model';
 import { ProductService } from 'src/app/services/product.service';
 import { SwiperOptions } from 'swiper/types';
 import SwiperCore, { Navigation, Autoplay } from 'swiper';
@@ -21,7 +21,7 @@ export class SliderComponent implements OnInit {
         title: product.title,
         price: product.price,
         images: product.images,
-        id: product.id
+        id: product.id,
       }));
       this.products = images;
     });
@@ -36,13 +36,12 @@ export class SliderComponent implements OnInit {
     breakpoints: {
       640: {
         slidesPerView: 1,
-        spaceBetween: 20
+        spaceBetween: 20,
       },
-      990:{
+      990: {
         slidesPerView: 1,
-        spaceBetween: 80
-      }
-    }
+        spaceBetween: 80,
+      },
+    },
   };
-
 }

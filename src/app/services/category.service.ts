@@ -1,10 +1,10 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Category } from '../models/category.model';
+import { Category } from '../modules/products/models/category.model';
 import { tap, map } from 'rxjs/operators';
 import { BehaviorSubject } from 'rxjs';
-import { Product } from '../models/product.model';
-import { environment } from "../../environments/environment";
+import { Product } from '../modules/products/models/product.model';
+import { environment } from '../../environments/environment';
 
 @Injectable({
   providedIn: 'root',
@@ -21,13 +21,13 @@ export class CategoryService {
     return this.http.get<Category[]>(`${this.url}/api/v1/categories`).pipe(
       map((data) => {
         const slicedData = data.slice(0, 4);
-        this.categories.next(slicedData)
-        return slicedData
+        this.categories.next(slicedData);
+        return slicedData;
       })
     );
   }
 
   get(id: Category['id']) {
-    return this.http.get<Product[]>(`${this.url}/api/v1/categories/id`)
+    return this.http.get<Product[]>(`${this.url}/api/v1/categories/id`);
   }
 }

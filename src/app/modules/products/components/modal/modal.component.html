@@ -1,19 +1,21 @@
 <div
-  class="fixed inset-0 flex items-center justify-center z-50 bg-black bg-opacity-50 "
+  class="fixed inset-0 flex items-center justify-center z-50 bg-black bg-opacity-50"
   (click)="close()"
 >
   <div class="flex bg-white p-3 md:p-6 rounded-sm mx-10">
     <img class="w-1/3 object-contain" [src]="product.images[0]" alt="" />
-    <div class="ml-4 w-1/3 text-sm sm:text-lg pt-4" style="font-family: 'sofia';">
+    <div
+      class="ml-4 w-1/3 text-sm sm:text-lg pt-4"
+      style="font-family: 'sofia'"
+    >
       <h2 class="font-bold mb-4">{{ product.title }}</h2>
       <p>{{ product.description }}</p>
       <h1>{{ product.price | currency }}</h1>
     </div>
     <div class="flex justify-end items-start w-1/3">
-      <app-button 
-      color="primary" 
-      class="text-sm md:text-base"
-      (click)="close()">Close</app-button>
+      <app-button color="primary" class="text-sm md:text-base" (click)="close()"
+        >Close
+      </app-button>
     </div>
   </div>
 </div>

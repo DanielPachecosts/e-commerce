@@ -13,24 +13,19 @@
       ></div>
     </a>
   </div>
-  <div class=" flex justify-between p-3">
+  <div class="flex justify-between p-3">
     <h5
       class="mx-2 text-sm font-medium leading-tight text-neutral-800 dark:text-neutral-50"
-      style="font-family: sofia;"
+      style="font-family: sofia"
     >
       {{ product.title }}
     </h5>
     <h5
       class="mx-2 text-sm font-medium leading-tight text-neutral-800 dark:text-neutral-50"
-      style="font-family: sofia;"
-
+      style="font-family: sofia"
     >
       {{ product.price | currency }}
     </h5>
-    <!-- <p class="mb-4 text-base text-neutral-600 dark:text-neutral-200 grow">
-      {{ product.description }}
-    </p> -->
-
   </div>
   <div
     class="flex flex-row flex-wrap w-full md:flex-col lg:flex-row items-center mx-auto"
@@ -40,15 +35,13 @@
       (click)="details(product)"
       color="primary"
       class="mb-2 w-1/2 text-center"
-      
       >Details</app-button
     >
     <app-button
       [buttonType]="'button'"
       (click)="add(product)"
       color="primary"
-      class="mb-2  w-1/2 text-center"
-      
+      class="mb-2 w-1/2 text-center"
       >Add to cart</app-button
     >
   </div>

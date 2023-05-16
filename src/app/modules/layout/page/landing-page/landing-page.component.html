@@ -1,5 +1,6 @@
 <div class="h-28"></div>
 <app-slider></app-slider>
+
 <div>
   <h1 class="w-full text-center font-semibold text-5xl mt-20 mb-12">
     Shop by Category
@@ -29,8 +30,11 @@
     What's new
   </h1>
   <app-products [products]="products"></app-products>
+
 </div>
 <div class="flex justify-center">
   <app-button [buttonType]="'button'" color="load" (click)="loadMore()">Load more Products</app-button>
 </div>
+
+
 

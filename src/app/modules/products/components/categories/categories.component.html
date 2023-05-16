@@ -1,0 +1,18 @@
+<div
+  class="fixed z-20 left-0 top-20 w-screen shadow px-8 sm:px-16 border-b border-t border-gray-300 bg-white text-black h-20 text-center mb-5"
+>
+  <h1
+    class="flex h-full items-center justify-center font-thin text-2xl tracking-wider"
+    style="font-family: 'sofia'"
+  >
+    {{ categoryName }}
+  </h1>
+</div>
+<div class="h-44"></div>
+<app-products [products]="products"></app-products>
+<div class="flex justify-center">
+  <app-button>
+    [buttonType]="'button'" color="load" style="font-family: 'sofia'"
+    (click)="loadMore()" >Load more Products from {{ categoryName }}
+  </app-button>
+</div>

@@ -1,9 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 
-import { Category } from 'src/app/models/category.model';
-import { Product } from 'src/app/models/product.model';
+import { Category } from 'src/app/modules/products/models/category.model';
+import { Product } from 'src/app/modules/products/models/product.model';
 import { CategoryService } from 'src/app/services/category.service';
 import { ProductService } from 'src/app/services/product.service';
+import { UserService } from 'src/app/services/user.service';
 
 @Component({
   selector: 'app-landing-page',
@@ -15,7 +16,11 @@ export class LandingPageComponent implements OnInit {
   offset = 0;
   limit = 8;
 
-  constructor(private categoryService: CategoryService, private productService: ProductService) {}
+  constructor(
+    private categoryService: CategoryService,
+    private productService: ProductService,
+    private userService: UserService
+  ) {}
 
   ngOnInit(): void {
     this.getProducts();
@@ -23,9 +28,9 @@ export class LandingPageComponent implements OnInit {
     this.categoryService.categories$.subscribe((data) => {
       this.categories = data;
     });
+    this.userService.get().subscribe()
   }
 
- 
   getProducts() {
     this.productService
       .getAll(this.limit, this.offset)
@@ -40,4 +45,5 @@ export class LandingPageComponent implements OnInit {
       this.products = this.products.concat(data);
     });
   }
+
 }

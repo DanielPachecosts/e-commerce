@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
-import { Product, CartProduct } from '../models/product.model';
+import { Product, CartProduct } from '../modules/products/models/product.model';
 
 @Injectable({
   providedIn: 'root',
@@ -13,7 +13,6 @@ export class CartService {
     const storedCart = localStorage.getItem('cart');
     if (storedCart) {
       this.cart.next(JSON.parse(storedCart));
-      console.log('se asigno nuevamente desde local storage');
     }
   }
 
@@ -34,7 +33,7 @@ export class CartService {
   }
 
   updateProductQty(products: CartProduct[]) {
-    const currentCart = products
+    const currentCart = products;
     localStorage.setItem('cart', JSON.stringify(currentCart));
     this.cart.next(currentCart);
   }
@@ -44,5 +43,9 @@ export class CartService {
     const currentCart = cart.filter((item) => item.id !== product.id);
     localStorage.setItem('cart', JSON.stringify(currentCart));
     this.cart.next(currentCart);
+  }
+
+  cleanStorage() {
+    localStorage.clear()
   }
 }

@@ -1,5 +1,4 @@
-import { Category } from "./category.model";
-
+import { Category } from './category.model';
 
 export interface Product {
   id: number;
@@ -11,5 +10,5 @@ export interface Product {
 }
 
 export interface CartProduct extends Product {
-  qty: number
+  qty: number;
 }

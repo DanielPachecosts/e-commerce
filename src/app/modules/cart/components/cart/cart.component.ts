@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 
 import { faCartShopping } from '@fortawesome/free-solid-svg-icons';
 import { map } from 'rxjs/operators';
-import { CartProduct, Product } from 'src/app/models/product.model';
+import { CartProduct } from 'src/app/modules/products/models/product.model';
 import { CartService } from 'src/app/services/cart.service';
 
 @Component({
@@ -23,8 +23,6 @@ export class CartComponent implements OnInit {
       )
       .subscribe((data) => {
         this.totalQuantityInCart = data.reduce((sum, qty) => sum + qty, 0);
-        console.log('cart component', this.totalQuantityInCart);
-        
       });
   }
 }

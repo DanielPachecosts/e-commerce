@@ -6,7 +6,7 @@ import { Component, Input } from '@angular/core';
 })
 export class ButtonComponent {
   @Input() buttonType: 'button' | 'submit' = 'button';
-  @Input() color: 'primary' | 'load' | 'secundary' | 'remove' = 'primary';
+  @Input() color: 'primary' | 'load' | 'secundary' | 'remove' | 'login' = 'primary';
 
   colorMap = {
     primary: {
@@ -35,6 +35,14 @@ export class ButtonComponent {
       'py-1':true,
       'rounded-md':true,
       
+    },
+    login: {
+      'bg-blue-500':true,
+      'hover:bg-blue-400':true,
+      'text-white':true,
+      'py-1':true,
+      'px-2':true,
+      'rounded-md':true,
     }
   };
 

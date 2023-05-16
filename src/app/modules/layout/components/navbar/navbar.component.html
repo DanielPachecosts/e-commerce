@@ -1,7 +1,7 @@
 <div
   class="fixed z-30 left-0 top-0 w-screen shadow bg-white px-8 sm:px-16 border-b-1 border-gray-300 mx-auto"
 >
-  <nav class="flex bg-white text-black opacity-95 h-20">
+  <nav class="flex bg-white text-black opacity-95 h-20" >
     <div id="left-nav-options" class="flex items-center w-2/6">
       <div class="lg:hidden">
         <fa-icon (click)="toggle()" [icon]="faBars"> </fa-icon>
@@ -24,10 +24,11 @@
         </li>
         <li class="text-center">
           <a
-            class="flex transition-all font-semibold px-4 py-4 my-2 hover:bg-neutral-100 rounded-xl tracking-wide"
+            class="flex transition-all font-semibold  my-2  tracking-wide"
             style="font-family: 'sofia'"
           >
             <button
+            class="px-4 py-4 hover:bg-neutral-100 rounded-xl"
               type="button"
               cdkOverlayOrigin
               #trigger="cdkOverlayOrigin"
@@ -61,13 +62,22 @@
       class="flex items-center w-2/6 text-center justify-end"
     >
       <fa-icon
-        class="hidden  md:block p-3 hover:bg-neutral-100 rounded-xl"
+        class="hidden md:block p-3 hover:bg-neutral-100 rounded-xl"
         [icon]="faSearch"
       ></fa-icon>
-      <fa-icon
-        class="p-3 hover:bg-neutral-100 rounded-xl hidden lg:block"
-        [icon]="faUser"
-      ></fa-icon>
+
+      <button
+        type="button"
+        cdkOverlayOrigin
+        #userOverlay="cdkOverlayOrigin"
+        (click)="isOpenUserOverlay = !isOpenUserOverlay"
+      >
+        <fa-icon
+          class="p-3 hover:bg-neutral-100 rounded-xl hidden lg:block"
+          [icon]="faUser"
+        ></fa-icon>
+      </button>
+
       <app-cart></app-cart>
     </div>
   </nav>
@@ -86,6 +96,35 @@
       <a [routerLink]="['/category', category.id]">
         <h3 class="tracking-wide" style="font-family: 'sofia'">
           {{ category.name }}
+        </h3>
+      </a>
+    </li>
+  </ul>
+</ng-template>
+
+<ng-template
+  cdkConnectedOverlay
+  [cdkConnectedOverlayOrigin]="userOverlay"
+  [cdkConnectedOverlayOpen]="isOpenUserOverlay"
+>
+  <ul
+    class="mt-2 w-48 rounded-sm p-2 bg-neutral-100"
+    (mouseleave)="isOpenCategoriesOverlay = !isOpenCategoriesOverlay"
+  >
+    <li *ngIf="!isUser" class="p-2 hover:bg-neutral-200">
+      <a routerLink="/auth/login">
+        <h3 class="tracking-wide" style="font-family: 'sofia'">Login</h3>
+      </a>
+    </li>
+
+    <li *ngIf="isUser" class="p-2 hover:bg-neutral-200">
+      <a routerLink="/">
+        <h3
+          class="tracking-wide"
+          style="font-family: 'sofia'"
+          (click)="logout()"
+        >
+          logout
         </h3>
       </a>
     </li>

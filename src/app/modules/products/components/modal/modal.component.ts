@@ -1,6 +1,6 @@
 import { Component, Inject } from '@angular/core';
 import { DIALOG_DATA, DialogRef } from '@angular/cdk/dialog';
-import { Product } from 'src/app/models/product.model';
+import { Product } from 'src/app/modules/products/models/product.model';
 
 interface inputData {
   product: Product;

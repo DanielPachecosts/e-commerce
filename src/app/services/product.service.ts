@@ -3,9 +3,9 @@ import { HttpClient, HttpParams } from '@angular/common/http';
 import { BehaviorSubject } from 'rxjs';
 import { tap } from 'rxjs/operators';
 
-import { Product } from 'src/app/models/product.model';
-import { Category } from '../models/category.model';
-import { environment } from "../../environments/environment";
+import { Product } from 'src/app/modules/products/models/product.model';
+import { Category } from '../modules/products/models/category.model';
+import { environment } from '../../environments/environment';
 
 @Injectable({
   providedIn: 'root',
@@ -31,8 +31,11 @@ export class ProductService {
     let params = new HttpParams();
     params = params.set('offset', offset);
     params = params.set('limit', limit);
-    return this.http.get<Product[]>(`${this.url}/api/v1/products/?categoryId=${id}`, {
-      params,
-    });
+    return this.http.get<Product[]>(
+      `${this.url}/api/v1/products/?categoryId=${id}`,
+      {
+        params,
+      }
+    );
   }
 }

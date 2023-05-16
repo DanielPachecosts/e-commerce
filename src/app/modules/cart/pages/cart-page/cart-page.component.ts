@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { CartProduct } from 'src/app/models/product.model';
+import { CartProduct } from 'src/app/modules/products/models/product.model';
 import { CartService } from 'src/app/services/cart.service';
 
 @Component({
@@ -17,16 +17,15 @@ export class CartPageComponent implements OnInit {
   constructor(private cartService: CartService) {}
 
   changeQty() {
-    this.cartService.updateProductQty(this.products)
+    this.cartService.updateProductQty(this.products);
     console.log(this.products);
-    
+
     this.getBill();
   }
 
   ngOnInit(): void {
     this.cartService.cart$.subscribe((data) => {
       this.products = data;
-      
     });
 
     for (let i = 1; i <= 8; i++) {
@@ -42,7 +41,6 @@ export class CartPageComponent implements OnInit {
     );
     this.tax = this.subtotal * 0.12;
     this.orderTotal = this.subtotal + this.tax;
-    
   }
 
   removeProduct(product: CartProduct) {
