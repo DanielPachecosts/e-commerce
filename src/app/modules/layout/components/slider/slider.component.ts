@@ -9,6 +9,7 @@ SwiperCore.use([Navigation, Autoplay]);
 @Component({
   selector: 'app-slider',
   templateUrl: './slider.component.html',
+  styleUrls: ['./slider.component.css'],
 })
 export class SliderComponent implements OnInit {
   products: Partial<Product>[] = [];
@@ -29,18 +30,18 @@ export class SliderComponent implements OnInit {
 
   config: SwiperOptions = {
     slidesPerView: 1,
-    spaceBetween: 100,
+    spaceBetween: 0,
     navigation: true,
     autoplay: true,
     scrollbar: { draggable: true },
     breakpoints: {
       640: {
-        slidesPerView: 1,
-        spaceBetween: 20,
+        slidesPerView: 2,
+        spaceBetween: 10,
       },
       990: {
-        slidesPerView: 1,
-        spaceBetween: 80,
+        slidesPerView: 3,
+        spaceBetween: 10,
       },
     },
   };

@@ -7,8 +7,8 @@
         <fa-icon (click)="toggle()" [icon]="faBars"> </fa-icon>
         <div>
           <app-sidebar
-            [ngClass]="!isOpen ? '-translate-x-full' : 'translate-x-0'"
-            class="absolute inset-0 h-screen bg-black/80 z-50 transition-transform duration-500"
+            
+            [open]="isOpen"
             (close)="toggle()"
           ></app-sidebar>
         </div>
@@ -38,14 +38,14 @@
             </button>
           </a>
         </li>
-        <li class="text-center">
+        <!-- <li class="text-center">
           <a
             routerLink="/"
             class="flex transition-all font-semibold px-4 py-4 my-2 hover:bg-neutral-100 rounded-xl tracking-wide"
             style="font-family: 'sofia'"
             >Others
           </a>
-        </li>
+        </li> -->
       </ul>
     </div>
     <div id="nav-logo" class="flex items-center w-2/6">
@@ -73,7 +73,7 @@
         (click)="isOpenUserOverlay = !isOpenUserOverlay"
       >
         <fa-icon
-          class="p-3 hover:bg-neutral-100 rounded-xl hidden lg:block"
+          class="p-3 hover:bg-neutral-100 rounded-xl "
           [icon]="faUser"
         ></fa-icon>
       </button>

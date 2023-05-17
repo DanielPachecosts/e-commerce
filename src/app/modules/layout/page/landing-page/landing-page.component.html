@@ -9,7 +9,7 @@
 <div id="categories" *ngIf="categories" class="grid sm:grid-cols-2 md:grid-cols-4">
   <div
     *ngFor="let category of categories"
-    class="relative mx-auto w-1/2 sm:w-full my-5"
+    class="relative mx-auto w-full sm:w-full my-5"
   >
     <img [src]="category.image" />
     <div class="absolute inset-0 flex justify-center top-3/4">
