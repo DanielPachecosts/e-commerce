@@ -6,7 +6,11 @@
     Shop by Category
   </h1>
 </div>
-<div id="categories" *ngIf="categories" class="grid sm:grid-cols-2 md:grid-cols-4">
+<div
+  id="categories"
+  *ngIf="categories"
+  class="grid sm:grid-cols-2 md:grid-cols-4"
+>
   <div
     *ngFor="let category of categories"
     class="relative mx-auto w-full sm:w-full my-5"
@@ -26,15 +30,16 @@
 </div>
 
 <div>
-  <h1 id="products" class="w-full text-center font-semibold text-5xl mt-20 mb-12">
+  <h1
+    id="products"
+    class="w-full text-center font-semibold text-5xl mt-20 mb-12"
+  >
     What's new
   </h1>
   <app-products [products]="products"></app-products>
-
 </div>
 <div class="flex justify-center">
-  <app-button [buttonType]="'button'" color="load" (click)="loadMore()">Load more Products</app-button>
+  <app-button buttonType="button" color="load" (click)="loadMore()"
+    >Load more Products</app-button
+  >
 </div>
-
-
-

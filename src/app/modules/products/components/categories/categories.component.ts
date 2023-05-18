@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Product } from 'src/app/modules/products/models/product.model';
 import { Category } from '../../models/category.model';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { ProductService } from 'src/app/services/product.service';
 import { CategoryService } from '../../../../services/category.service';
 
@@ -15,10 +15,13 @@ export class CategoriesComponent implements OnInit {
   limit = 8;
   offset = 0;
 
+
+
   constructor(
     private route: ActivatedRoute,
     private categoryService: CategoryService,
-    private productService: ProductService
+    private productService: ProductService,
+    private router: Router
   ) {}
 
   ngOnInit(): void {
@@ -41,4 +44,6 @@ export class CategoriesComponent implements OnInit {
       this.products = this.products.concat(data);
     });
   }
+
+  
 }

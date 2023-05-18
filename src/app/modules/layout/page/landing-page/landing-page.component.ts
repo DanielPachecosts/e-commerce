@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { NavigationEnd, Router } from '@angular/router';
 
 import { Category } from 'src/app/modules/products/models/category.model';
 import { Product } from 'src/app/modules/products/models/product.model';
@@ -15,11 +16,13 @@ export class LandingPageComponent implements OnInit {
   categories: Category[] = [];
   offset = 0;
   limit = 8;
+  isOut = false
 
   constructor(
     private categoryService: CategoryService,
     private productService: ProductService,
-    private userService: UserService
+    private userService: UserService,
+    private router: Router
   ) {}
 
   ngOnInit(): void {
@@ -29,6 +32,7 @@ export class LandingPageComponent implements OnInit {
       this.categories = data;
     });
     this.userService.get().subscribe()
+
   }
 
   getProducts() {
@@ -45,5 +49,7 @@ export class LandingPageComponent implements OnInit {
       this.products = this.products.concat(data);
     });
   }
+
+  
 
 }

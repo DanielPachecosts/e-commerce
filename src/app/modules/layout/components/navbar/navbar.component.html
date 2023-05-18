@@ -1,12 +1,11 @@
 <div
-class="fixed z-30 left-0 top-0 w-screen shadow bg-white px-8 sm:px-16 border-b-1 border-gray-300 mx-auto"
+  class="fixed z-30 left-0 top-0 w-screen shadow bg-white px-8 sm:px-16 border-b-1 border-gray-300 mx-auto"
 >
-<app-sidebar [open]="isOpen" (close)="toggle()"></app-sidebar>
+  <app-sidebar [open]="isOpen" (close)="toggle()"></app-sidebar>
   <nav class="flex bg-white text-black opacity-95 h-20">
     <div id="left-nav-options" class="flex items-center w-2/6">
       <div class="lg:hidden">
         <fa-icon (click)="toggle()" [icon]="faBars"> </fa-icon>
-
       </div>
       <ul class="hidden w-full justify-center sm:justify-start lg:flex">
         <li class="text-center trans">
@@ -27,7 +26,7 @@ class="fixed z-30 left-0 top-0 w-screen shadow bg-white px-8 sm:px-16 border-b-1
               type="button"
               cdkOverlayOrigin
               #trigger="cdkOverlayOrigin"
-              (click)="isOpenCategoriesOverlay = !isOpenCategoriesOverlay"
+              (click)="toggleCategory()"
             >
               Categories
             </button>
@@ -37,8 +36,9 @@ class="fixed z-30 left-0 top-0 w-screen shadow bg-white px-8 sm:px-16 border-b-1
     </div>
     <div id="nav-logo" class="flex items-center w-2/6">
       <h1
+        #logo
         id="#top"
-        class="w-full text-center tracking-widest text-sm md:text-xl"
+        class="w-full text-center tracking-widest text-sm md:text-xl "
         style="font-family: 'bristone'"
       >
         <a routerLink="">SMART COMMERCE</a>

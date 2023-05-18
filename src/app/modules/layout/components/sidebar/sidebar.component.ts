@@ -3,10 +3,8 @@ import {
   ElementRef,
   EventEmitter,
   Input,
-  OnInit,
   Output,
   ViewChild,
-  ViewChildren,
 } from '@angular/core';
 import { gsap } from 'gsap';
 
@@ -15,8 +13,7 @@ import { gsap } from 'gsap';
   templateUrl: './sidebar.component.html',
 })
 export class SidebarComponent {
-
-  isOpen:boolean;
+  isOpen: boolean;
   @Output() close = new EventEmitter();
   @ViewChild('side', { static: true }) sideBar!: ElementRef<HTMLDivElement>;
   @ViewChild('other', { static: true }) other!: ElementRef<HTMLUListElement>;
@@ -67,10 +64,8 @@ export class SidebarComponent {
     }
   }
 
-  
-
   constructor() {
-    this.isOpen = false
+    this.isOpen = false;
   }
 
   toggleSidebar() {
