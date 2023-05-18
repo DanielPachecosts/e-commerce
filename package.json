@@ -24,6 +24,7 @@
     "@fortawesome/free-brands-svg-icons": "^6.2.1",
     "@fortawesome/free-regular-svg-icons": "^6.2.1",
     "@fortawesome/free-solid-svg-icons": "^6.2.1",
+    "gsap": "^3.11.5",
     "rxjs": "~7.8.0",
     "swiper": "^8.4.6",
     "tslib": "^2.3.0",

@@ -1,27 +1,28 @@
-<div class="flex p-7 mt-10 justify-between absolute inset-0 top-32 h-screen bg-black/90 z-50 ease-in-out duration-500 rounded-none"
-[ngClass]="!open ? '-translate-x-full rounded-e-full' : 'translate-x-0 rounded-e-none'">
-  <ul>
-    <li>
+<div
+  #side
+  class=" bg-gray-900 overflow-hidden p-7 w-full justify-between absolute inset-0 top-16 h-screen z-50 -translate-x-full"
+>
+  <ul #other>
+    <li #li1>
       <a
         href="#products"
-        (click)="closeSidebar()"
+        (click)="toggleSidebar()"
         class="flex transition-all text-white justify-center font-semibold px-4 py-4 my-2 hover:bg-zinc-700 rounded-xl tracking-wide"
         style="font-family: 'sofia'"
         >All Products
       </a>
     </li>
-    <li>
+    <li  #li2>
       <a
         href="#categories"
-        (click)="closeSidebar()"
+        (click)="toggleSidebar()"
         class="flex transition-all text-white justify-center font-semibold px-4 py-4 my-2 hover:bg-zinc-700 rounded-xl tracking-wide"
         style="font-family: 'sofia'"
         >Categories
       </a>
     </li>
-    
+    <li #btn class="flex justify-center">
+      <app-button color="secundary" (click)="toggleSidebar()">Close</app-button>
+    </li>
   </ul>
-  <div class="">
-    <app-button color="secundary" (click)="closeSidebar()">Close</app-button>
-  </div>
 </div>

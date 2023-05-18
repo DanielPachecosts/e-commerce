@@ -1,17 +1,12 @@
 <div
-  class="fixed z-30 left-0 top-0 w-screen shadow bg-white px-8 sm:px-16 border-b-1 border-gray-300 mx-auto"
+class="fixed z-30 left-0 top-0 w-screen shadow bg-white px-8 sm:px-16 border-b-1 border-gray-300 mx-auto"
 >
+<app-sidebar [open]="isOpen" (close)="toggle()"></app-sidebar>
   <nav class="flex bg-white text-black opacity-95 h-20">
     <div id="left-nav-options" class="flex items-center w-2/6">
       <div class="lg:hidden">
         <fa-icon (click)="toggle()" [icon]="faBars"> </fa-icon>
-        <div>
-          <app-sidebar
-            
-            [open]="isOpen"
-            (close)="toggle()"
-          ></app-sidebar>
-        </div>
+
       </div>
       <ul class="hidden w-full justify-center sm:justify-start lg:flex">
         <li class="text-center trans">
@@ -38,14 +33,6 @@
             </button>
           </a>
         </li>
-        <!-- <li class="text-center">
-          <a
-            routerLink="/"
-            class="flex transition-all font-semibold px-4 py-4 my-2 hover:bg-neutral-100 rounded-xl tracking-wide"
-            style="font-family: 'sofia'"
-            >Others
-          </a>
-        </li> -->
       </ul>
     </div>
     <div id="nav-logo" class="flex items-center w-2/6">
@@ -73,7 +60,7 @@
         (click)="isOpenUserOverlay = !isOpenUserOverlay"
       >
         <fa-icon
-          class="p-3 hover:bg-neutral-100 rounded-xl "
+          class="p-3 hover:bg-neutral-100 rounded-xl"
           [icon]="faUser"
         ></fa-icon>
       </button>

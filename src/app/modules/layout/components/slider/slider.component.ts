@@ -4,6 +4,7 @@ import { ProductService } from 'src/app/services/product.service';
 import { SwiperOptions } from 'swiper/types';
 import SwiperCore, { Navigation, Autoplay } from 'swiper';
 
+
 SwiperCore.use([Navigation, Autoplay]);
 
 @Component({
