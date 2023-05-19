@@ -1,36 +1,48 @@
 <div
-  class="block rounded-lg bg-white shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)] dark:bg-neutral-700 w-full sm:w-full mx-auto border-gray-400 border"
+  id="container"
+  class="block rounded-lg bg-white shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)] dark:bg-neutral-700 w-full sm:w-full mx-auto border-gray-400 border p-5 h-auto"
 >
   <div
-    class="relative overflow-hidden bg-cover bg-no-repeat"
+    #imageContainer
+    id="image-container"
+    class="relative bg-no-repeat overflow-hidden"
     data-te-ripple-init
     data-te-ripple-color="light"
   >
-    <img class="rounded-t-lg w-full" [src]="product.images[0]" alt="" />
-    <a href="#!">
-      <div
-        class="absolute bottom-0 left-0 right-0 top-0 h-full w-full overflow-hidden bg-[hsla(0,0%,98%,0.15)] bg-fixed opacity-0 transition duration-300 ease-in-out hover:opacity-100"
-      ></div>
-    </a>
+    <img class="rounded-lg bg-cover" [src]="product.images[0]" alt="" />
+    <div #imageInfo class="absolute bottom-0 inset-x-0 w-full h-0 bg-white">
+      <div #imageContent class="flex justify-between p-3">
+        <h1
+          class="mx-2 font-bold leading-tight text-neutral-800 dark:text-neutral-50"
+          style="font-family: sofia"
+        >
+          {{ product.title }}
+        </h1>
+        <h5
+          class="mx-2 font-medium leading-tight text-neutral-800 dark:text-neutral-50"
+          style="font-family: sofia"
+        >
+          {{ product.price | currency }}
+        </h5>
+      </div>
+      <div #imageContent2 class="flex h-3/4 justify-center items-center">
+        <p class="text-sm font-light w-4/5 text-center">
+          {{ product.description }}
+        </p>
+      </div>
+    </div>
   </div>
-  <div class="flex justify-between p-3">
-    <h5
-      class="mx-2 text-sm font-medium leading-tight text-neutral-800 dark:text-neutral-50"
-      style="font-family: sofia"
-    >
-      {{ product.title }}
-    </h5>
-    <h5
-      class="mx-2 text-sm font-medium leading-tight text-neutral-800 dark:text-neutral-50"
-      style="font-family: sofia"
-    >
-      {{ product.price | currency }}
-    </h5>
-  </div>
+
   <div
-    class="flex flex-row flex-wrap w-full md:flex-col lg:flex-row items-center mx-auto"
+    class="flex flex-row flex-wrap w-full md:flex-col lg:flex-row justify-center items-center mx-auto h-1/4 my-6"
   >
-    <app-button
+    <button #arrow (click)="animate()">
+      <fa-icon [icon]="faChevronRight" class="p-4"></fa-icon>
+    </button>
+  </div>
+</div>
+
+<!-- <app-button
       [buttonType]="'button'"
       (click)="details(product)"
       color="primary"
@@ -43,6 +55,4 @@
       color="primary"
       class="mb-2 w-1/2 text-center"
       >Add to cart</app-button
-    >
-  </div>
-</div>
+    > -->

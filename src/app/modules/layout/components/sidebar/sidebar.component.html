@@ -3,7 +3,7 @@
   class=" bg-gray-900 overflow-hidden p-7 w-full justify-between absolute inset-0 top-16 h-screen z-50 -translate-x-full"
 >
   <ul #other>
-    <li #li1>
+    <li #li>
       <a
         href="#products"
         (click)="toggleSidebar()"
@@ -12,7 +12,7 @@
         >All Products
       </a>
     </li>
-    <li  #li2>
+    <li  #li>
       <a
         href="#categories"
         (click)="toggleSidebar()"
@@ -21,7 +21,7 @@
         >Categories
       </a>
     </li>
-    <li #btn class="flex justify-center">
+    <li #li class="flex justify-center">
       <app-button color="secundary" (click)="toggleSidebar()">Close</app-button>
     </li>
   </ul>

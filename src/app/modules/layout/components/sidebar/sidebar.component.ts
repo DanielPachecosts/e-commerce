@@ -4,7 +4,9 @@ import {
   EventEmitter,
   Input,
   Output,
+  QueryList,
   ViewChild,
+  ViewChildren,
 } from '@angular/core';
 import { gsap } from 'gsap';
 
@@ -17,9 +19,9 @@ export class SidebarComponent {
   @Output() close = new EventEmitter();
   @ViewChild('side', { static: true }) sideBar!: ElementRef<HTMLDivElement>;
   @ViewChild('other', { static: true }) other!: ElementRef<HTMLUListElement>;
-  @ViewChild('li1', { static: true }) li1!: ElementRef<HTMLLIElement>;
-  @ViewChild('li2', { static: true }) li2!: ElementRef<HTMLLIElement>;
-  @ViewChild('btn', { static: true }) btn!: ElementRef<HTMLLIElement>;
+  @ViewChildren('li') li!: QueryList<ElementRef>;
+  // @ViewChild('li2', { static: true }) li2!: ElementRef<HTMLLIElement>;
+  // @ViewChild('btn', { static: true }) btn!: ElementRef<HTMLLIElement>;
   @Input() set open(value: boolean) {
     this.isOpen = value;
     if (this.sideBar && this.isOpen) {
@@ -28,27 +30,23 @@ export class SidebarComponent {
         duration: 0.7,
         ease: 'circ.inOut',
       });
+
       gsap.to([this.sideBar.nativeElement, this.other.nativeElement], {
         duration: 0.8,
         borderTopRightRadius: '0',
         borderBottomRightRadius: '0',
         ease: 'circ.inOut',
       });
-      gsap.from(this.li1.nativeElement, {
-        x: '-100%',
-        duration: 0.8,
-        ease: 'circ.inOut',
+
+      this.li.forEach((liItem: ElementRef<HTMLLIElement>) => {
+        gsap.from(liItem, {
+          x: '-100%',
+          duration: 0.8,
+          ease: 'circ.inOut',
+        });
+
       });
-      gsap.from(this.li2.nativeElement, {
-        x: '-100%',
-        duration: 0.8,
-        ease: 'circ.inOut',
-      });
-      gsap.from(this.btn.nativeElement, {
-        x: '-100%',
-        duration: 0.8,
-        ease: 'circ.inOut',
-      });
+
     } else {
       gsap.to([this.sideBar.nativeElement, this.other.nativeElement], {
         x: '-100%',

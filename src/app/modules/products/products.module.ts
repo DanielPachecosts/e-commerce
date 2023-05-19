@@ -1,5 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+
 
 import { ProductsRoutingModule } from './products-routing.module';
 import { ProductComponent } from './components/product/product.component';
@@ -15,7 +17,7 @@ import { SharedModule } from '../../shared/shared.module';
     ModalComponent,
     CategoriesComponent,
   ],
-  imports: [CommonModule, ProductsRoutingModule, SharedModule],
+  imports: [CommonModule, ProductsRoutingModule, SharedModule, FontAwesomeModule],
   exports: [
     ProductsComponent,
     ProductComponent,
