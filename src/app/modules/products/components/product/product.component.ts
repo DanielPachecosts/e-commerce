@@ -60,7 +60,7 @@ export class ProductComponent implements OnInit {
 
     this.tl1.to(this.imageInfo.nativeElement, {
       display: 'block',
-      height: '100%',
+      height: '80%',
       duration: 0.5,
       ease: 'power1.inOut',
     });
