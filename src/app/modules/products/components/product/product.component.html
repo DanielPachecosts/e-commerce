@@ -25,34 +25,37 @@
           {{ product.price | currency }}
         </h5>
       </div>
-      <div #imageContent2 class="flex h-3/4 justify-center items-center">
+      <div #imageContent2 class="flex h-3/4 flex-col justify-center items-center">
         <p class="text-sm font-light w-4/5 text-center">
           {{ product.description }}
         </p>
       </div>
     </div>
+    <!-- <app-button
+      [buttonType]="'button'"
+          (click)="details(product)"
+          color="primary"
+          class="mb-2 w-1/2 text-center"
+          >Details</app-button
+        > -->
   </div>
-
+  
   <div
-    class="flex flex-row flex-wrap w-full md:flex-col lg:flex-row justify-center items-center mx-auto h-1/4 my-6"
+    class="flex flex-row flex-wrap w-full md:flex-col lg:flex-row justify-center items-center mx-auto h-1/4 mt-6 mb-2"
   >
     <button #arrow (click)="animate()">
       <fa-icon [icon]="faChevronRight" class="p-4"></fa-icon>
     </button>
   </div>
-</div>
-
-<!-- <app-button
-      [buttonType]="'button'"
-      (click)="details(product)"
-      color="primary"
-      class="mb-2 w-1/2 text-center"
-      >Details</app-button
-    >
+  <div class="flex justify-center items-center">
     <app-button
       [buttonType]="'button'"
       (click)="add(product)"
       color="primary"
-      class="mb-2 w-1/2 text-center"
+      class="mb-2 w-1/2 text-center whitespace-nowrap"
       >Add to cart</app-button
-    > -->
+    >
+  
+  </div>
+</div>
+

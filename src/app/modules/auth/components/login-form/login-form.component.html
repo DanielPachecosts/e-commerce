@@ -1,6 +1,6 @@
 <div class="h-28"></div>
 <div
-  class="border border-gray-200 rounded-md w-3/6 md:w-2/6 p-2 my-8 mx-auto"
+  class="border border-gray-200 rounded-md w-5/6 sm:w-3/6 md:w-2/6 p-2 my-8 mx-auto"
   style="font-family: 'sofia'"
 >
   <form [formGroup]="loginForm" (ngSubmit)="submit()">
@@ -59,6 +59,6 @@
 
   <div class="flex justify-center items-center mt-10">
     <span class="mx-2 text-sm">Don't have an account? </span>
-    <app-button color="remove">Sign up now!</app-button>
+    <app-button color="remove" class="whitespace-nowrap">Sign up now!</app-button>
   </div>
 </div>
